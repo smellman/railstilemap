@@ -1,0 +1,23 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    cairo (1.14.0)
+      pkg-config (>= 1.1.5)
+    gdk_pixbuf2 (2.2.3)
+      glib2 (= 2.2.3)
+    glib2 (2.2.3)
+      pkg-config
+    pango (2.2.3)
+      cairo (>= 1.12.5)
+      glib2 (= 2.2.3)
+    pkg-config (1.1.6)
+    rsvg2 (2.2.3)
+      cairo (>= 1.12.8)
+      gdk_pixbuf2 (= 2.2.3)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  pango
+  rsvg2

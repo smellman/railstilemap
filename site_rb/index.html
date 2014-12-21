@@ -1,0 +1,42 @@
+<DOCTYPE html>
+<html>
+  <head>
+    <title>tile test</title>
+    <link rel="stylesheet" href="./leaflet/leaflet.css" />
+    <script src="./leaflet/leaflet.js"></script>
+    <script src="./leaflet-hash.js"></script>
+    <style>
+     #map { height: 100%; width: 100%;}
+     .leaflet-container {
+       background: #ffffff;
+     }
+    </style>
+    <script>
+     var map;
+     var marker;
+     var init = function() {
+       var zoom = 10;
+
+       map = L.map('map', {
+         maxZoom: 14,
+         minZoom: 8,
+         crs: L.CRS.Simple
+       });
+       map.setView(map.unproject([512, 512], zoom), zoom);
+       
+       var southWest = map.unproject([0, 4544], 13);
+       var northEast = map.unproject([7336, 0], 13);
+       map.setMaxBounds(new L.LatLngBounds(southWest, northEast));
+       
+       var layer = L.tileLayer('./tile/{z}/{x}_{y}.png', {
+         attribution: 'Map data &copy;',
+       }).addTo(map);
+       var hash = new L.Hash(map);
+     };
+     
+    </script>
+  </head>
+  <body onload="init();">
+    <div id="map"></div>
+  </body>
+</html>
